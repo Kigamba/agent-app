@@ -1,2 +1,1 @@
-# agent-app victor
-# agent-app victor biloko
+This is the MVP agent app for android
