@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RegisterLandlordUnits">
+
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="15dp"
+            android:layout_marginTop="20dp"
+            android:orientation="vertical">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/buildingName"
+                android:id="@+id/buildingName"
+                android:inputType="text"
+                />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/buildingLocation"
+                android:id="@+id/buildingLocation"
+                android:inputType="text"
+                />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/caretakerPhoneNumber"
+                android:id="@+id/caretakerPhoneNumber"
+                android:inputType="number"
+                />
+
+
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="@string/houseTypesTV"/>
+
+                <Spinner
+                    android:id="@+id/houseTypesSpinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:entries="@array/houseTypes"
+                    android:foregroundTint="@color/colorAccent"
+                    android:pointerIcon="arrow"
+                    android:gravity="center"></Spinner>
+
+
+
+
+
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/totalUnits"
+                android:id="@+id/totalUnits"
+                android:inputType="number"
+                />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/vacantUnits"
+                android:inputType="number"
+                android:id="@+id/vacantUnits"
+                />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:hint="@string/rentInKsh"
+                android:id="@+id/rentInKsh"
+                />
+
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:drawableLeft="@drawable/ic_add_black_24dp"
+                android:drawablePadding="30dp"
+                android:textColorHint="@color/colorAccent"
+                android:hint="@string/addUnitType"
+                android:id="@+id/addUnitType"
+                />
+
+
+
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="bottom"
+            android:layout_margin="10dp"
+            android:layout_alignParentBottom="true"
+            tools:ignore="MissingConstraints">
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_gravity="bottom"
+                android:background="@color/colorAccent"
+                android:text="@string/btn_save"
+                style="@style/TextAppearance.AppCompat.Title"
+                android:textColor="@color/white"
+                android:id="@+id/btn_save" />
+
+
+        </LinearLayout>
+    </RelativeLayout>
+
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
