@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "374078356957",
+    "firebase_url": "https://house-app-8ed2d.firebaseio.com",
+    "project_id": "house-app-8ed2d",
+    "storage_bucket": "house-app-8ed2d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:374078356957:android:042f56f5ebc7dea1388a34",
+        "android_client_info": {
+          "package_name": "com.stavros.demo.android"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "374078356957-3io6kfngjqbun81p37h57l9qvk031dab.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCSYEZ1ceaK0hPxblwTIpj9jg35B8nezr8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "374078356957-3io6kfngjqbun81p37h57l9qvk031dab.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

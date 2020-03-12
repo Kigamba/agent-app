@@ -1,0 +1,61 @@
+<resources>
+    <string name="app_name">Land Lord</string>
+    <string name="firstName">First Name</string>
+    <string name="lastName">Last Name</string>
+    <string name="phoneNumber">Phone Number</string>
+    <string name="gender">Gender</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <string name="id_number">ID number</string>
+    <string name="email">Email</string>
+    <string name="btn_save">SAVE</string>
+
+
+    <string name="buildingName">Buiding Name</string>
+    <string name="buildingLocation">Building Location</string>
+    <string name="caretakerPhoneNumber">caretaker Phone Number</string>
+    <string name="houseTypesTV">House Types</string>
+    <string name="totalUnits">Total Units</string>
+    <string name="vacantUnits">Vacant Units</string>
+    <string name="rentInKsh">Rent in Ksh</string>
+    <string name="addUnitType">Add Unit Type</string>
+
+    <string name="housePreferrence">House Preferrence</string>
+    <string name="preferredHouseLocation">Preferred House Locations eg\. Ruiru, Roysambu</string>
+
+
+    <array name="houseTypes">
+        <item>ONE BEDROOM</item>
+        <item>BED SITTER</item>
+        <item>TWO BEDROOM</item>
+        <item>THREE BEDROOM</item>
+    </array>
+
+
+    <string name="Please_enter_first_name">Please enter your first name</string>
+    <string name="Please_enter_last_name">Please enter your last name</string>
+    <string name="Please_enter_phone_number">Please enter your phone number</string>
+    <string name="Please_enter_id_number">Please enter your ID number</string>
+    <string name="Please_select_gender">Please select your gender</string>
+    <string name="Please_enter_email">Please enter your email</string>
+    <string name="Please_enter_preferredHouseLocation">Please enter your preferred house Location</string>
+
+    <string name="Please_enter_buildingName">Please enter your building name</string>
+    <string name="Please_enter_buildingLocation">Please enter your building location</string>
+    <string name="Please_enter_caretakerPhoneNumber">Please enter your caretaker\'s phone number</string>
+    <string name="Please_enter_totalUnits">Please enter the total number of units</string>
+    <string name="Please_enter_vacantUnits">Please enter the number of vacant units</string>
+    <string name="Please_enter_rentInKsh">Please enter rent in Ksh</string>
+
+
+    <string name="Registering_Please_Wait">Registering, Please wait\.\.\.</string>
+    <string name="landlord_added">Landlord added!</string>
+    <string name="landlordUnit_added">Landlord Units added!</string>
+    <string name="tenant_added">Tenant added!</string>
+
+    <string name="your_earnings">YOUR EARNINGS</string>
+    <string name="unread_messages">UNREAD MESSAGES</string>
+    <string name="paying_tenants">PAYING TENANTS</string>
+
+
+</resources>
