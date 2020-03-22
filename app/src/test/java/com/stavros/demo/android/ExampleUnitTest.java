@@ -1,4 +1,4 @@
-package com.mb_nthw.landlord;
+package com.stavros.demo.android;
 
 import org.junit.Test;
 
