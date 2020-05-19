@@ -1,12 +1,13 @@
-package com.stavros.demo.android;
+package com.stavros.demo.android.form;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
+
+import com.stavros.demo.android.R;
 
 public class MainActivity extends AppCompatActivity {
 

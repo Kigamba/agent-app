@@ -1,4 +1,4 @@
-package com.stavros.demo.android;
+package com.stavros.demo.android.form;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,13 +8,12 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.stavros.demo.android.R;
 
 import java.util.HashMap;
 import java.util.Map;
