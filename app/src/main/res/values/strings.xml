@@ -1,4 +1,10 @@
 <resources>
+    <array name="houseTypes">
+        <item>ONE BEDROOM</item>
+        <item>BED SITTER</item>
+        <item>TWO BEDROOM</item>
+        <item>THREE BEDROOM</item>
+    </array>
     <string name="app_name">Land Lord</string>
     <string name="firstName">First Name</string>
     <string name="lastName">Last Name</string>
@@ -8,9 +14,9 @@
     <string name="female">Female</string>
     <string name="id_number">ID number</string>
     <string name="email">Email</string>
+
+
     <string name="btn_save">SAVE</string>
-
-
     <string name="buildingName">Buiding Name</string>
     <string name="buildingLocation">Building Location</string>
     <string name="caretakerPhoneNumber">caretaker Phone Number</string>
@@ -18,18 +24,12 @@
     <string name="totalUnits">Total Units</string>
     <string name="vacantUnits">Vacant Units</string>
     <string name="rentInKsh">Rent in Ksh</string>
+
     <string name="addUnitType">Add Unit Type</string>
-
     <string name="housePreferrence">House Preferrence</string>
+
+
     <string name="preferredHouseLocation">Preferred House Locations eg\. Ruiru, Roysambu</string>
-
-
-    <array name="houseTypes">
-        <item>ONE BEDROOM</item>
-        <item>BED SITTER</item>
-        <item>TWO BEDROOM</item>
-        <item>THREE BEDROOM</item>
-    </array>
 
 
     <string name="Please_enter_first_name">Please enter your first name</string>
@@ -57,6 +57,9 @@
     <string name="unread_messages">UNREAD MESSAGES</string>
     <string name="paying_tenants">PAYING TENANTS</string>
     <string name="landlord_registration">Landlord Registration</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 
 </resources>
