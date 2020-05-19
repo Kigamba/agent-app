@@ -3,7 +3,6 @@ package com.stavros.demo.android.form
 import android.app.ProgressDialog
 import android.content.Intent
 import android.os.Bundle
-import android.text.TextUtils
 import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
@@ -28,60 +27,60 @@ class LandlordRegistration : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_landlord_registration)
-        uFirstName = findViewById<View>(R.id.firstName) as EditText
-        uLastName = findViewById<View>(R.id.lasttName) as EditText
+        uFirstName = findViewById(R.id.firstName)
+        uLastName = findViewById(R.id.lasttName)
         uPhoneNumber = findViewById<View>(R.id.phoneNumber) as EditText
-        uID_number = findViewById<View>(R.id.id_number) as EditText
-        uEmail = findViewById<View>(R.id.email) as EditText
-        radiog_Gender = findViewById<View>(R.id.gender) as RadioGroup
-        btn_save = findViewById<View>(R.id.btn_save) as Button
+        uID_number = findViewById(R.id.id_number)
+        uEmail = findViewById(R.id.email)
+        radiog_Gender = findViewById(R.id.gender)
+        btn_save = findViewById(R.id.btn_save)
         progressDialog.set(ProgressDialog(this))
-        btn_save!!.setOnClickListener { saveLandlord() }
+        btn_save?.setOnClickListener { saveLandlord() }
     }
 
     private fun saveLandlord() {
-        val firstName = uFirstName!!.text.toString().trim { it <= ' ' }
-        val lastName = uLastName!!.text.toString().trim { it <= ' ' }
-        val phone = uPhoneNumber!!.text.toString().trim { it <= ' ' }
-        val genderBtn = radiog_Gender!!.checkedRadioButtonId
+        val firstName = uFirstName?.text.toString().trim { it <= ' ' }
+        val lastName = uLastName?.text.toString().trim()
+        val phone = uPhoneNumber?.text.toString().trim()
+        val genderBtn = radiog_Gender?.checkedRadioButtonId
         var gender = ""
-        uGender = findViewById<View>(genderBtn) as RadioButton
+        uGender = findViewById(genderBtn!!)
 
-        val id_number = uID_number!!.text.toString().trim { it <= ' ' }
-        val email = uEmail!!.text.toString().trim { it <= ' ' }
+        val id_number = uID_number?.text.toString().trim()
+        val email = uEmail?.text.toString().trim()
 
-        if (TextUtils.isEmpty(firstName)) {
-            Toast.makeText(this, resources.getString(R.string.Please_enter_first_name), Toast.LENGTH_LONG).show()
+        if (firstName.isEmpty()) {
+            resources.getString(R.string.Please_enter_first_name).showLongToast()
             return
         }
 
-        if (TextUtils.isEmpty(lastName)) {
-            Toast.makeText(this, resources.getString(R.string.Please_enter_last_name), Toast.LENGTH_LONG).show()
+        if (lastName.isEmpty()) {
+            resources.getString(R.string.Please_enter_last_name).showLongToast()
             return
         }
 
-        if (TextUtils.isEmpty(phone)) {
-            Toast.makeText(this, resources.getString(R.string.Please_enter_phone_number), Toast.LENGTH_LONG).show()
+        if (phone.isEmpty()) {
+            resources.getString(R.string.Please_enter_phone_number).showLongToast()
             return
         } else if (phone.length != 10) {
-            Toast.makeText(this, resources.getString(R.string.Please_enter_phone_number), Toast.LENGTH_LONG).show()
+            resources.getString(R.string.Please_enter_phone_number).showLongToast()
             return
         }
 
         gender = if (uGender != null) {
-            uGender!!.text.toString()
+            uGender?.text.toString()
         } else {
-            Toast.makeText(this, resources.getString(R.string.Please_select_gender), Toast.LENGTH_LONG).show()
+            resources.getString(R.string.Please_select_gender).showLongToast()
             return
         }
 
-        if (TextUtils.isEmpty(id_number)) {
-            Toast.makeText(this, resources.getString(R.string.Please_enter_id_number), Toast.LENGTH_LONG).show()
+        if (id_number.isEmpty()) {
+            resources.getString(R.string.Please_enter_id_number).showLongToast()
             return
         }
 
-        if (TextUtils.isEmpty(email)) {
-            Toast.makeText(this, resources.getString(R.string.Please_enter_email), Toast.LENGTH_LONG).show()
+        if (email.isEmpty()) {
+            resources.getString(R.string.Please_enter_email).showLongToast()
             return
         }
 
@@ -100,8 +99,12 @@ class LandlordRegistration : AppCompatActivity() {
         landlordRef!!.setValue(newPost)
         progressDialog.get()?.dismiss()
 
-        Toast.makeText(this@LandlordRegistration, resources.getString(R.string.landlord_added), Toast.LENGTH_LONG).show()
+        resources.getString(R.string.landlord_added).showLongToast()
         val intent = Intent(this@LandlordRegistration, RegisterLandlordUnits::class.java)
         startActivity(intent)
+    }
+
+    private fun String.showLongToast() {
+        Toast.makeText(this@LandlordRegistration, this, Toast.LENGTH_LONG).show();
     }
 }

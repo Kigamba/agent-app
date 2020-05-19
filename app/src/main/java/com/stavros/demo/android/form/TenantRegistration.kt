@@ -2,7 +2,6 @@ package com.stavros.demo.android.form
 
 import android.app.ProgressDialog
 import android.os.Bundle
-import android.text.TextUtils
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.database.DatabaseReference
@@ -44,31 +43,31 @@ class TenantRegistration : AppCompatActivity() {
     }
 
     private fun saveTenant() {
-        val firstName = uFirstName?.text.toString().trim { it <= ' ' }
-        val lastName = uLastName?.text.toString().trim { it <= ' ' }
-        val phone = uPhoneNumber?.text.toString().trim { it <= ' ' }
+        val firstName = uFirstName?.text.toString().trim()
+        val lastName = uLastName?.text.toString().trim()
+        val phone = uPhoneNumber?.text.toString().trim()
         val genderBtn = radiog_Gender?.checkedRadioButtonId
         var gender = ""
 
         uGender = findViewById(genderBtn!!)
 
-        val id_number = uID_number?.text.toString().trim { it <= ' ' }
-        val email = uEmail?.text.toString().trim { it <= ' ' }
+        val id_number = uID_number?.text.toString().trim()
+        val email = uEmail?.text.toString().trim()
 
         val houseType = houseTypesSpinner!!.selectedItem.toString()
-        val preferredHouseLocation = uPreferredHouseLocation!!.text.toString().trim { it <= ' ' }
+        val preferredHouseLocation = uPreferredHouseLocation!!.text.toString().trim()
 
-        if (TextUtils.isEmpty(firstName)) {
+        if (firstName.isEmpty()) {
             Toast.makeText(this, resources.getString(R.string.Please_enter_first_name), Toast.LENGTH_LONG).show()
             return
         }
 
-        if (TextUtils.isEmpty(lastName)) {
+        if (lastName.isEmpty()) {
             Toast.makeText(this, resources.getString(R.string.Please_enter_last_name), Toast.LENGTH_LONG).show()
             return
         }
 
-        if (TextUtils.isEmpty(phone)) {
+        if (phone.isEmpty()) {
             Toast.makeText(this, resources.getString(R.string.Please_enter_phone_number), Toast.LENGTH_LONG).show()
             return
         } else if (phone.length != 10) {
@@ -83,17 +82,17 @@ class TenantRegistration : AppCompatActivity() {
             return
         }
 
-        if (TextUtils.isEmpty(id_number)) {
+        if (id_number.isEmpty()) {
             Toast.makeText(this, resources.getString(R.string.Please_enter_id_number), Toast.LENGTH_LONG).show()
             return
         }
 
-        if (TextUtils.isEmpty(email)) {
+        if (email.isEmpty()) {
             Toast.makeText(this, resources.getString(R.string.Please_enter_email), Toast.LENGTH_LONG).show()
             return
         }
 
-        if (TextUtils.isEmpty(preferredHouseLocation)) {
+        if (preferredHouseLocation.isEmpty()) {
             Toast.makeText(this, resources.getString(R.string.Please_enter_preferredHouseLocation), Toast.LENGTH_LONG).show()
             return
         }

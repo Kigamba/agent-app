@@ -33,40 +33,40 @@ class RegisterLandlordUnits : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register_landlord_units)
 
-        uBuildingName = findViewById<View>(R.id.buildingName) as EditText
-        uBuildingLocation = findViewById<View>(R.id.buildingLocation) as EditText
-        uCaretakerPhoneNumber = findViewById<View>(R.id.caretakerPhoneNumber) as EditText
-        uTotalUnits = findViewById<View>(R.id.totalUnits) as EditText
-        uVacantUnits = findViewById<View>(R.id.vacantUnits) as EditText
-        uRentInKsh = findViewById<View>(R.id.rentInKsh) as EditText
-        uAddUnitType = findViewById<View>(R.id.addUnitType) as EditText
-        houseTypesSpinner = findViewById<View>(R.id.houseTypesSpinner) as Spinner
-        btn_save = findViewById<View>(R.id.btn_save) as Button
+        uBuildingName = findViewById(R.id.buildingName)
+        uBuildingLocation = findViewById(R.id.buildingLocation)
+        uCaretakerPhoneNumber = findViewById(R.id.caretakerPhoneNumber)
+        uTotalUnits = findViewById(R.id.totalUnits)
+        uVacantUnits = findViewById(R.id.vacantUnits)
+        uRentInKsh = findViewById(R.id.rentInKsh)
+        uAddUnitType = findViewById(R.id.addUnitType)
+        houseTypesSpinner = findViewById(R.id.houseTypesSpinner)
+        btn_save = findViewById(R.id.btn_save)
         progressDialog.set(ProgressDialog(this))
         uAddUnitType?.setOnClickListener { }
         btn_save?.setOnClickListener { saveLandlordUnit() }
     }
 
     private fun saveLandlordUnit() {
-        val buildingName = uBuildingName?.text.toString().trim { it <= ' ' }
-        val buildingLocation = uBuildingLocation?.text.toString().trim { it <= ' ' }
-        val caretakerPhoneNumber = uCaretakerPhoneNumber?.text.toString().trim { it <= ' ' }
+        val buildingName = uBuildingName?.text.toString().trim()
+        val buildingLocation = uBuildingLocation?.text.toString().trim()
+        val caretakerPhoneNumber = uCaretakerPhoneNumber?.text.toString().trim()
         val totalUnits = uTotalUnits?.text.toString()
-        val vacantUnits = uVacantUnits?.text.toString().trim { it <= ' ' }
-        val rentInKsh = uRentInKsh?.text.toString().trim { it <= ' ' }
+        val vacantUnits = uVacantUnits?.text.toString().trim()
+        val rentInKsh = uRentInKsh?.text.toString().trim()
         val houseType = houseTypesSpinner?.selectedItem.toString()
 
-        if (TextUtils.isEmpty(buildingName)) {
+        if (buildingName.isEmpty()) {
             Toast.makeText(this, resources.getString(R.string.Please_enter_buildingName), Toast.LENGTH_LONG).show()
             return
         }
 
-        if (TextUtils.isEmpty(buildingLocation)) {
+        if (buildingLocation.isEmpty()) {
             Toast.makeText(this, resources.getString(R.string.Please_enter_buildingLocation), Toast.LENGTH_LONG).show()
             return
         }
 
-        if (TextUtils.isEmpty(caretakerPhoneNumber)) {
+        if (caretakerPhoneNumber.isEmpty()) {
             Toast.makeText(this, resources.getString(R.string.Please_enter_caretakerPhoneNumber), Toast.LENGTH_LONG).show()
             return
         } else if (caretakerPhoneNumber.length != 10) {
@@ -74,16 +74,16 @@ class RegisterLandlordUnits : AppCompatActivity() {
             return
         }
 
-        if (TextUtils.isEmpty(totalUnits)) {
+        if (totalUnits.isEmpty()) {
             Toast.makeText(this, resources.getString(R.string.Please_enter_totalUnits), Toast.LENGTH_LONG).show()
         }
 
-        if (TextUtils.isEmpty(vacantUnits)) {
+        if (vacantUnits.isEmpty()) {
             Toast.makeText(this, resources.getString(R.string.Please_enter_vacantUnits), Toast.LENGTH_LONG).show()
             return
         }
 
-        if (TextUtils.isEmpty(rentInKsh)) {
+        if (rentInKsh.isEmpty()) {
             Toast.makeText(this, resources.getString(R.string.Please_enter_rentInKsh), Toast.LENGTH_LONG).show()
             return
         }
