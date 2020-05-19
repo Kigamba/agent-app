@@ -11,7 +11,7 @@
         android:name=".AgentApplication"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".TenantRegistration"/>
+        <activity android:name=".form.TenantRegistration"/>
 
         <activity android:name=".form.RegisterLandlordUnits" />
 
