@@ -23,7 +23,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         uAddTenant?.setOnClickListener {
-            val intent = Intent(this@MainActivity, LandlordRegistration::class.java)
+            val intent = Intent(this@MainActivity, LandlordListActivity::class.java)
             startActivity(intent)
         }
     }
