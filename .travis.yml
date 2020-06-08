@@ -25,6 +25,7 @@ script:
   - echo "Travis branch is $TRAVIS_BRANCH"
   - echo "Travis branch is in pull request $TRAVIS_PULL+REQUEST"
   - chmod 755 gradlew
+  - mv app/dummy-google-services.json app/google-services.json
   - ls -la
   # Enable the line below once we get all the test passing, currently most of the tests are failing
   # so we'll just if the project compiles
