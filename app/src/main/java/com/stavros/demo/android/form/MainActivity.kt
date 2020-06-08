@@ -14,6 +14,8 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        setTitle(getString(R.string.agent_app))
+
         uAddLandlord = findViewById(R.id.add_landlord)
         uAddTenant = findViewById(R.id.add_tenant)
 

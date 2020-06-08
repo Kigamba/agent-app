@@ -22,8 +22,10 @@ class LandlordListActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         setContentView(R.layout.activity_landlord_list)
+
+        setTitle(getString(R.string.landlords_list))
+
         landlordList = findViewById(R.id.lv_landlordList)
 
         val observableLandlords = fetchLandlords();

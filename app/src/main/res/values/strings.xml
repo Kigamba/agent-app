@@ -60,6 +60,8 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="agent_app">Agent App</string>
+    <string name="landlords_list">Landlords List</string>
 
 
 </resources>
