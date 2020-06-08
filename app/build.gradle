@@ -46,11 +46,13 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.1.0'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
 
-    implementation 'com.google.firebase:firebase-core:17.2.1'
+    implementation 'com.google.firebase:firebase-analytics:17.2.1'
     implementation 'com.google.firebase:firebase-database:19.2.0'
     implementation 'com.google.firebase:firebase-auth:19.1.0'
-    implementation 'com.google.firebase:firebase-firestore:17.1.1'
-    implementation 'com.google.firebase:firebase-storage:19.1.0'
+    //implementation 'com.google.firebase:firebase-firestore:17.1.1'
+
+    // For uploading user generated content such as images and videos
+    //implementation 'com.google.firebase:firebase-storage:19.1.0'
 
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     testImplementation 'junit:junit:4.12'
@@ -71,6 +73,7 @@ dependencies {
 }
 
 
+// Google services plugin -> Enables analytics
 apply plugin: 'com.google.gms.google-services'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
