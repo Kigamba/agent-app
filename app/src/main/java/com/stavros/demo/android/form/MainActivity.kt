@@ -20,7 +20,13 @@ class MainActivity : AppCompatActivity() {
         uAddTenant = findViewById(R.id.add_tenant)
 
         uAddLandlord?.setOnClickListener {
-            val intent = Intent(this@MainActivity, LandlordRegistration::class.java)
+            /*val intent = Intent(this@MainActivity, LandlordRegistration::class.java)
+            startActivity(intent)*/
+
+            var formData = FormData("Landlord Registration", FormType.jsonFromEmbeddedDefault, "json.form/landlord-registration.neat.json")
+
+            val intent = Intent(this, FormActivity::class.java)
+            intent.putExtra("formData", formData)
             startActivity(intent)
         }
 

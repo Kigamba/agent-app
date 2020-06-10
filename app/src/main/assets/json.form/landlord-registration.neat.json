@@ -1,0 +1,73 @@
+{
+  "form": "Landlord Registration",
+  "steps": [
+    {
+      "title": "Landlord Registration",
+      "fields": [
+        {
+          "name": "first_name",
+          "type": "text_input_edit_text",
+          "properties": {
+            "hint": "First name",
+            "input_type": "textPersonName"
+          },
+          "required_status": "Yes: Kindly enter the first name"
+        },
+        {
+          "name": "last_name",
+          "type": "text_input_edit_text",
+          "properties": {
+            "hint": "Last name",
+            "input_type": "textPersonName"
+          },
+          "required_status": "Yes: Kindly enter the last name"
+        },
+        {
+          "name": "phone_number",
+          "type": "text_input_edit_text",
+          "properties": {
+            "hint": "Phone Number",
+            "input_type": "phone"
+          },
+          "required_status": "Yes: Kindly enter the phone number"
+        },
+        {
+          "name": "gender",
+          "type": "radio_group",
+          "options": [
+            {
+              "name": "male",
+              "text": "Male"
+            },
+            {
+              "name": "female",
+              "text": "Female"
+            }
+          ],
+          "properties": {
+            "text": "Gender"
+          },
+          "required_status": "Yes: Kindly select the landlord's gender"
+        },
+        {
+          "name": "id_no",
+          "type": "text_input_edit_text",
+          "properties": {
+            "hint": "ID Number",
+            "input_type": "number"
+          },
+          "required_status": "Yes: Kindly enter the ID Number"
+        },
+        {
+          "name": "email",
+          "type": "text_input_edit_text",
+          "properties": {
+            "hint": "Email address",
+            "input_type": "textEmailAddress"
+          },
+          "required_status": "Yes: Kindly enter the email address"
+        }
+      ]
+    }
+  ]
+}

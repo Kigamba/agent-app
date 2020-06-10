@@ -51,12 +51,12 @@ class LandlordListActivity : AppCompatActivity() {
                             val phone = convertView?.findViewById<TextView>(R.id.textView6)
 
                             val landlord = listOfLandlords[position]
-                            fName?.setText(landlord.get("firstName") as String)
-                            lName?.setText(landlord.get("lastName") as String)
-                            email?.setText(landlord.get("email") as String)
-                            gender?.setText(landlord.get("gender") as String)
-                            idNo?.setText(landlord.get("id_number") as String)
-                            phone?.setText(landlord.get("phone") as String)
+                            fName?.setText(landlord.get("first_name") as String?)
+                            lName?.setText(landlord.get("last_name") as String?)
+                            email?.setText(landlord.get("email") as String?)
+                            //gender?.setText(landlord.get("gender") as String?)
+                            idNo?.setText(landlord.get("id_no") as String?)
+                            phone?.setText(landlord.get("phone_number") as String?)
 
                             return convertView!!
                         }

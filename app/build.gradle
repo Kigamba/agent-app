@@ -70,6 +70,8 @@ dependencies {
     implementation 'io.reactivex.rxjava3:rxjava:3.0.0'
 
     implementation 'com.jakewharton.timber:timber:4.7.1'
+
+    implementation "com.nerdstone:neat-form-core:1.1.1"
 }
 
 

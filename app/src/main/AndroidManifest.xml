@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+<manifest
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.stavros.demo.android">
+
+    <uses-sdk
+        tools:overrideLibrary="com.nerdstone.neatformcore, com.nerdstone.neatandroidstepper.core"/>
 
     <application
         android:name=".AgentApplication"
@@ -23,6 +28,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".form.LandlordListActivity"/>
+        <activity android:name=".form.FormActivity"/>
     </application>
 
 </manifest>
