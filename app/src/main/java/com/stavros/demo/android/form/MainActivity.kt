@@ -6,6 +6,7 @@ import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import com.stavros.demo.android.R
 import com.stavros.demo.android.util.FormType
+import com.stavros.demo.android.util.startJsonFormActivity
 
 class MainActivity : AppCompatActivity() {
 
@@ -23,17 +24,16 @@ class MainActivity : AppCompatActivity() {
         uAddLandlord?.setOnClickListener {
             /*val intent = Intent(this@MainActivity, LandlordRegistration::class.java)
             startActivity(intent)*/
-
-            var formData = FormData("Landlord Registration", FormType.jsonFromEmbeddedDefault, "json.form/landlord-registration.neat.json")
-
-            val intent = Intent(this, NeatFormJsonActivity::class.java)
-            intent.putExtra("formData", formData)
+            var intent = startJsonFormActivity(this, "Landlord Registration", "landlord-registration.neat.json", LandlordRegistrationActivity::class.java)
             startActivity(intent)
         }
 
         uAddTenant?.setOnClickListener {
-            val intent = Intent(this@MainActivity, LandlordListActivity::class.java)
+            var intent = startJsonFormActivity(this, "Tenant Registration", "tenant-registration.neat.json", TenantRegistrationActivity::class.java)
             startActivity(intent)
+
+            /*val intent = Intent(this@MainActivity, LandlordListActivity::class.java)
+            startActivity(intent)*/
         }
     }
 }

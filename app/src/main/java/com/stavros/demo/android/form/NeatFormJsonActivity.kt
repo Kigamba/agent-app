@@ -8,9 +8,6 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
-import com.google.firebase.database.DatabaseError
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
 import com.nerdstone.neatformcore.domain.builders.FormBuilder
 import com.nerdstone.neatformcore.form.common.FormErrorDialog
 import com.nerdstone.neatformcore.form.json.JsonFormBuilder
@@ -20,13 +17,12 @@ import com.stavros.demo.android.dialog.MyAesthicDialog
 import com.stavros.demo.android.util.FormType
 import com.stavros.demo.android.util.getFormDataAsKeyValues
 import com.thecode.aestheticdialogs.AestheticDialog
-import timber.log.Timber
 
 
 /**
  * Created by Kigamba (nek.eam@gmail.com) on 09-June-2020
  */
-class NeatFormJsonActivity : AppCompatActivity() {
+abstract class NeatFormJsonActivity : AppCompatActivity() {
 
     private lateinit var formLayout: LinearLayout
     private lateinit var mainLayout: LinearLayout
@@ -36,7 +32,7 @@ class NeatFormJsonActivity : AppCompatActivity() {
     private lateinit var completeButton: ImageView
     private var formBuilder: FormBuilder? = null
 
-    private var currentShowingToast: Toast? = null
+    protected var currentShowingToast: Toast? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -122,35 +118,22 @@ class NeatFormJsonActivity : AppCompatActivity() {
         })
     }*/
 
-    private fun saveData(landlordRegData: HashMap<String, Any?>) {
-        val landlordsRef = FirebaseDatabase.getInstance().reference.child("Users").child("Landlords")//.child(id_number)
-
-        /*progressDialog.get()?.setMessage(resources.getString(R.string.Registering_Please_Wait))
-        progressDialog.get()?.show()*/
-
-        val idNo = landlordRegData["id_no"] as String?
-        if (idNo != null) {
-            landlordsRef.child(idNo).setValue(landlordRegData, object: DatabaseReference.CompletionListener {
-                override fun onComplete(databaseError: DatabaseError?, databaseReference: DatabaseReference) {
-                    currentShowingToast?.cancel()
-                    if (databaseError == null) {
-                        MyAesthicDialog.showEmotion(this@NeatFormJsonActivity, "Data saved", null, AestheticDialog.SUCCESS, DialogInterface.OnDismissListener {
-                            finish()
-                        })
-                    } else {
-                        Timber.e(Throwable(databaseError.message))
-                        AestheticDialog.showEmotion(this@NeatFormJsonActivity, "An error occurred", "Data could not be saved. Please try again!", AestheticDialog.ERROR)
-                    }
-                }
-            })
-        } else {
-            AestheticDialog.showEmotion(this@NeatFormJsonActivity, "An error occurred", "Data could not be saved. Please try again!", AestheticDialog.ERROR)
-        }
-    }
+    abstract fun saveData(formData: HashMap<String, Any?>);
 
     private fun showToast(toastText: String) {
         currentShowingToast?.cancel()
         currentShowingToast = Toast.makeText(this, toastText, Toast.LENGTH_LONG)
         currentShowingToast?.show()
     }
+
+    protected fun showDatabaseSaveSuccessMessage() {
+        MyAesthicDialog.showEmotion(this@NeatFormJsonActivity, "Data saved", null, AestheticDialog.SUCCESS, DialogInterface.OnDismissListener {
+            finish()
+        })
+    }
+
+    protected fun showDatabaseSaveErrorMessage() {
+        AestheticDialog.showEmotion(this@NeatFormJsonActivity, "An error occurred", "Data could not be saved. Please try again!", AestheticDialog.ERROR)
+    }
+
 }
