@@ -1,12 +1,11 @@
 package com.stavros.demo.android.form
 
-import android.app.ProgressDialog
+import android.content.DialogInterface
 import android.os.Bundle
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
-import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import com.google.firebase.database.DatabaseError
@@ -17,6 +16,10 @@ import com.nerdstone.neatformcore.form.common.FormErrorDialog
 import com.nerdstone.neatformcore.form.json.JsonFormBuilder
 import com.nerdstone.neatformcore.form.json.JsonFormEmbedded
 import com.stavros.demo.android.R
+import com.stavros.demo.android.dialog.MyAesthicDialog
+import com.stavros.demo.android.util.FormType
+import com.stavros.demo.android.util.getFormDataAsKeyValues
+import com.thecode.aestheticdialogs.AestheticDialog
 import timber.log.Timber
 
 
@@ -33,7 +36,6 @@ class NeatFormJsonActivity : AppCompatActivity() {
     private lateinit var completeButton: ImageView
     private var formBuilder: FormBuilder? = null
 
-    private var progressDialog: AlertDialog? = null
     private var currentShowingToast: Toast? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -130,13 +132,19 @@ class NeatFormJsonActivity : AppCompatActivity() {
         if (idNo != null) {
             landlordsRef.child(idNo).setValue(landlordRegData, object: DatabaseReference.CompletionListener {
                 override fun onComplete(databaseError: DatabaseError?, databaseReference: DatabaseReference) {
+                    currentShowingToast?.cancel()
                     if (databaseError == null) {
-                        showToast()
+                        MyAesthicDialog.showEmotion(this@NeatFormJsonActivity, "Data saved", null, AestheticDialog.SUCCESS, DialogInterface.OnDismissListener {
+                            finish()
+                        })
                     } else {
-
+                        Timber.e(Throwable(databaseError.message))
+                        AestheticDialog.showEmotion(this@NeatFormJsonActivity, "An error occurred", "Data could not be saved. Please try again!", AestheticDialog.ERROR)
                     }
                 }
             })
+        } else {
+            AestheticDialog.showEmotion(this@NeatFormJsonActivity, "An error occurred", "Data could not be saved. Please try again!", AestheticDialog.ERROR)
         }
     }
 
@@ -145,20 +153,4 @@ class NeatFormJsonActivity : AppCompatActivity() {
         currentShowingToast = Toast.makeText(this, toastText, Toast.LENGTH_LONG)
         currentShowingToast?.show()
     }
-}
-
-
-object FormType {
-    const val jsonFromEmbeddedDefault = "JsonFormEmbedded - default"
-}
-
-fun FormBuilder.getFormDataAsKeyValues (): HashMap<String, Any?> {
-    val formData = this.getFormData();
-    var keyValues : HashMap<String, Any?> = HashMap()
-
-    formData.keys.forEach {
-        keyValues[it] = formData.get(it)?.value
-    }
-
-    return keyValues
 }

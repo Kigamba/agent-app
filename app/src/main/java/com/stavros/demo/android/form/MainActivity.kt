@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import com.stavros.demo.android.R
+import com.stavros.demo.android.util.FormType
 
 class MainActivity : AppCompatActivity() {
 

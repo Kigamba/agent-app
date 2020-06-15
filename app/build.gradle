@@ -71,7 +71,9 @@ dependencies {
 
     implementation 'com.jakewharton.timber:timber:4.7.1'
 
-    implementation "com.nerdstone:neat-form-core:1.1.1"
+    implementation 'com.nerdstone:neat-form-core:1.1.1'
+
+    implementation 'com.github.gabriel-TheCode:AestheticDialogs:1.2.1'
 }
 
 
