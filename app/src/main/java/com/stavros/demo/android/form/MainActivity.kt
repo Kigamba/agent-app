@@ -25,7 +25,7 @@ class MainActivity : AppCompatActivity() {
 
             var formData = FormData("Landlord Registration", FormType.jsonFromEmbeddedDefault, "json.form/landlord-registration.neat.json")
 
-            val intent = Intent(this, FormActivity::class.java)
+            val intent = Intent(this, NeatFormJsonActivity::class.java)
             intent.putExtra("formData", formData)
             startActivity(intent)
         }

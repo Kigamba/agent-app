@@ -1,12 +1,16 @@
 package com.stavros.demo.android.form
 
+import android.app.ProgressDialog
 import android.os.Bundle
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.nerdstone.neatformcore.domain.builders.FormBuilder
 import com.nerdstone.neatformcore.form.common.FormErrorDialog
@@ -14,16 +18,12 @@ import com.nerdstone.neatformcore.form.json.JsonFormBuilder
 import com.nerdstone.neatformcore.form.json.JsonFormEmbedded
 import com.stavros.demo.android.R
 import timber.log.Timber
-import kotlin.collections.HashMap
-
-const val FILE_PATH = "FILE_PATH"
-const val PRE_FILLED = "PRE_FILLED"
 
 
 /**
  * Created by Kigamba (nek.eam@gmail.com) on 09-June-2020
  */
-class FormActivity : AppCompatActivity() {
+class NeatFormJsonActivity : AppCompatActivity() {
 
     private lateinit var formLayout: LinearLayout
     private lateinit var mainLayout: LinearLayout
@@ -32,6 +32,9 @@ class FormActivity : AppCompatActivity() {
     private lateinit var exitFormImageView: ImageView
     private lateinit var completeButton: ImageView
     private var formBuilder: FormBuilder? = null
+
+    private var progressDialog: AlertDialog? = null
+    private var currentShowingToast: Toast? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -65,9 +68,7 @@ class FormActivity : AppCompatActivity() {
                             saveData(regData)
                         }
 
-                        Toast.makeText(this, "Completed entire step", Toast.LENGTH_LONG).show()
-                        Timber.d("Saved Data = %s", formBuilder?.getFormDataAsJson())
-                        finish()
+                        showToast("Completed entire step")
                     } else {
                         FormErrorDialog(this).show()
                     }
@@ -127,17 +128,28 @@ class FormActivity : AppCompatActivity() {
 
         val idNo = landlordRegData["id_no"] as String?
         if (idNo != null) {
-            landlordsRef.child(idNo).setValue(landlordRegData)
+            landlordsRef.child(idNo).setValue(landlordRegData, object: DatabaseReference.CompletionListener {
+                override fun onComplete(databaseError: DatabaseError?, databaseReference: DatabaseReference) {
+                    if (databaseError == null) {
+                        showToast()
+                    } else {
+
+                    }
+                }
+            })
         }
+    }
+
+    private fun showToast(toastText: String) {
+        currentShowingToast?.cancel()
+        currentShowingToast = Toast.makeText(this, toastText, Toast.LENGTH_LONG)
+        currentShowingToast?.show()
     }
 }
 
 
 object FormType {
     const val jsonFromEmbeddedDefault = "JsonFormEmbedded - default"
-    const val jsonFormEmbeddedCustomized = "JsonFormEmbedded - customised"
-    const val jsonFormStepperDefault = "JsonFormStepper - default"
-    const val jsonFormStepperCustomized = "JsonFormStepper - customised"
 }
 
 fun FormBuilder.getFormDataAsKeyValues (): HashMap<String, Any?> {

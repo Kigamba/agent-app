@@ -28,7 +28,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".form.LandlordListActivity"/>
-        <activity android:name=".form.FormActivity"/>
+        <activity android:name=".form.NeatFormJsonActivity"/>
     </application>
 
 </manifest>
